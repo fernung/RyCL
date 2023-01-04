@@ -25,7 +25,18 @@ namespace RyCL
         public int Width => _width;
         public int Height => _height;
         public int Count => _hostBuffer.Length;
-        public Bitmap Bitmap => _bitmap;
+        public Bitmap Bitmap
+        {
+            get
+            {
+                if (_syncCpu)
+                {
+                    _memoryBuffer.CopyToCPU(_hostBuffer);
+                    _syncCpu = false;
+                }
+                return _bitmap;
+            }
+        }
 
         public int this[int i]
         {

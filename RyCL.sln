@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RyCL.Runner.Cli", "RyCL.Run
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RyCL", "RyCL\RyCL.csproj", "{92835670-2A3A-4CC6-9366-BD5908DF3D25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RyCL.Runner.DX", "RyCL.Runner.DX\RyCL.Runner.DX.csproj", "{BE25AEFB-BBAD-47BF-B4E7-8251DB0DAF2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{92835670-2A3A-4CC6-9366-BD5908DF3D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92835670-2A3A-4CC6-9366-BD5908DF3D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92835670-2A3A-4CC6-9366-BD5908DF3D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE25AEFB-BBAD-47BF-B4E7-8251DB0DAF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE25AEFB-BBAD-47BF-B4E7-8251DB0DAF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE25AEFB-BBAD-47BF-B4E7-8251DB0DAF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE25AEFB-BBAD-47BF-B4E7-8251DB0DAF2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
