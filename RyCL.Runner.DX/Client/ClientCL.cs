@@ -1,13 +1,10 @@
-﻿using Bitmap = SharpDX.Direct2D1.Bitmap;
+﻿using RyCL.Graphics;
 using SharpDX;
 using SharpDX.Direct2D1;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Linq;
+
+using Bitmap = SharpDX.Direct2D1.Bitmap;
 using RectangleF = SharpDX.RectangleF;
 using Color = SharpDX.Color;
-using RyCL.Graphics;
 
 namespace RyCL.Runner.DX.Client
 {
@@ -16,7 +13,6 @@ namespace RyCL.Runner.DX.Client
         protected static readonly Random _random = new();
         protected static readonly Dictionary<Keys, bool> _keys = new Dictionary<Keys, bool>();
         protected RectangleF _screenRectF;
-        //protected PixelGL _graphics;
         protected RasterGL _graphics;
         private int _graphicsStride;
         private Bitmap _frontBuffer;

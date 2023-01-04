@@ -19,24 +19,9 @@ namespace RyCL
         private MemoryBuffer1D<int, Stride1D.Dense> _memoryBuffer;
         private DeviceBuffer _deviceBuffer;
 
-        private GCHandle _handle;
-        private Bitmap _bitmap;
-
         public int Width => _width;
         public int Height => _height;
         public int Count => _hostBuffer.Length;
-        public Bitmap Bitmap
-        {
-            get
-            {
-                if (_syncCpu)
-                {
-                    _memoryBuffer.CopyToCPU(_hostBuffer);
-                    _syncCpu = false;
-                }
-                return _bitmap;
-            }
-        }
 
         public int this[int i]
         {
@@ -73,9 +58,6 @@ namespace RyCL
             _hostBuffer = new int[width * height];
             _memoryBuffer = device.Allocate1D<int>(_hostBuffer.Length);
             _deviceBuffer = new DeviceBuffer(width, height, _memoryBuffer);
-
-            _handle = GCHandle.Alloc(_hostBuffer, GCHandleType.Pinned);
-            _bitmap = new Bitmap(width, height, width << 2, PixelFormat.Format32bppArgb, _handle.AddrOfPinnedObject());
         }
 
         public DeviceBuffer GetDeviceBuffer()
@@ -98,24 +80,12 @@ namespace RyCL
             return ref _hostBuffer;
         }
 
-        public void Save(string path)
-        {
-            if (_syncCpu)
-            {
-                _memoryBuffer.CopyToCPU(_hostBuffer);
-                _syncCpu = false;
-            }
-            _bitmap.Save(path);
-        }
-
         public void Dispose()
         {
             if (_disposed)
                 return;
             _disposed = true;
             _memoryBuffer?.Dispose();
-            _handle.Free();
-            _bitmap?.Dispose();
         }
     }
     public struct DeviceBuffer
